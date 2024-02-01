@@ -1,8 +1,10 @@
 package com.dev.commerce.dto;
 
-import jakarta.persistence.Column;
+
+import com.dev.commerce.entities.Product;
 
 public class ProductDTO {
+
     private Long id;
     private String name;
     private String description;
@@ -17,6 +19,14 @@ public class ProductDTO {
         this.description = description;
         this.price = price;
         this.imgUrl = imgUrl;
+    }
+
+    public ProductDTO(Product entity) {
+        id = entity.getId();
+        name = entity.getName();
+        description = entity.getDescription();
+        price = entity.getPrice();
+        imgUrl = entity.getImgUrl();
     }
 
     public Long getId() {
