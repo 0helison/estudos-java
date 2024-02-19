@@ -2,16 +2,19 @@ package com.dev.commerce.dto;
 
 
 import com.dev.commerce.entities.Product;
+import jakarta.validation.constraints.*;
 
 public class ProductDTO {
 
     private Long id;
+    @Size(min = 3, max = 80, message = "Nome deve ter entre 3 e 80 caracteres")
+    @NotBlank(message = "Campo requerido")
     private String name;
+    @Size(min = 10, message = "Descrição precisa ter pelo menos 10 caracteres")
     private String description;
+    @Positive(message = "O preço deve ser positivo")
     private Double price;
     private String imgUrl;
-
-    public ProductDTO(){}
 
     public ProductDTO(Long id, String name, String description, Double price, String imgUrl) {
         this.id = id;
